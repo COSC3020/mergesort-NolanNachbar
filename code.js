@@ -1,28 +1,34 @@
 function mergesort(array) {
     var subarraysize = 1;
-    var subIndex = 0;
-    
-    while (2*subarraysize <= array.length)
+
+    while (subarraysize < array.length) 
     {
-      while(subIndex*subarraysize <= array.length)
+      for (var start = 0; start < array.length; start += 2 * subarraysize) 
       {
-      for(var i = subIndex*subarraysize; i <= (subIndex + 1)*subarraysize; i++) 
-      {
-        for(var j = (subIndex + 1)*subarraysize; j <= (subIndex + 2)*subarraysize; j++) 
-      {
-        if(array[i] > array[j])
+        var midsub = Math.min(start + subarraysize, array.length);
+        var endsub = Math.min(start + 2 * subarraysize, array.length);
+        
+        var l = array.slice(start, midsub);
+        var r = array.slice(midsub, endsub);
+        
+        for(var i = start; i <= midsub; i++) 
         {
-          let t = array[i];
-          array[i] = array[j];
-          array[j] = t;
+          for(var j = midsub; j <= endsub; j++) 
+          {
+            if(array[i] > array[j])
+            {
+              let t = array[i];
+              array[i] = array[j];
+              array[j] = t;
+            }
+          }
+        
         }
-      }
-      }
-      subIndex++;
-      }
-      subIndex = 0;
+        
+      
+    }
       subarraysize *= 2;
     }
-    
+
     return array;
 }
