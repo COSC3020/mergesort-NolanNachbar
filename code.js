@@ -8,9 +8,6 @@ function mergesort(array) {
         var midsub = Math.min(start + subarraysize, array.length);
         var endsub = Math.min(start + 2 * subarraysize, array.length);
         
-        var l = array.slice(start, midsub);
-        var r = array.slice(midsub, endsub);
-        
         for(var i = start; i <= midsub; i++) 
         {
           for(var j = midsub; j <= endsub; j++) 
