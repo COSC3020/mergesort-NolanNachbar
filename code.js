@@ -12,12 +12,11 @@ function mergesort(array) {
                 if (array[a] <= array[b]) {
                     a++;
                 } else {
-                    let temp = array[b];
+                    let t = array[b];
                     for (let k = b; k > a; k--) {
                         array[k] = array[k - 1];
                     }
-                    array[a] = temp;
-
+                    array[a] = t;
                     a++;
                     b++;
                 }
