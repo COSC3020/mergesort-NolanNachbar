@@ -7,7 +7,6 @@ function mergesort(array) {
             var endsub = Math.min(start + 2 * subarraysize, array.length);
             
             var a = start, b = midsub;
-            
             while (a < b && b < endsub) {
                 if (array[a] <= array[b]) {
                     a++;
@@ -24,6 +23,5 @@ function mergesort(array) {
         }
         subarraysize *= 2;
     }
-
     return array;
 }
