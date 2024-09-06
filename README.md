@@ -44,47 +44,9 @@ function mergesort(array) {
 }
 ```
 
-1. If the array has 0 or 1 elements, it’s sorted (while loop won't run). Stop. T (1) = 1
-2. Split the array into one element pieces. 1
-3. Sort each half recursively (using Mergesort). 2T (n/2)
-4. Merge the sorted halves to produce one sorted result: n
+1. The outer while loop runs $log_2 n$ times. This is because 
+2. The outermost for loop runs 
 
-Thus, our recurrence relation is:
-
-$$
-T(n) = \begin{cases}
-1 & \text{ if } & n \leq 1 \\
-3\mathrm{T}(\frac{n}{3}) + 2 & \text{ if } & n > 1
-\end{cases}
-$$
-
-Now to solve the recurrence relation by substitution:
-
-$$
-T(n) = 3T(n/3) + 2
-$$
-
-$$
-= 3(3T(n/9) + 2) + 2
-$$
-
-$$
-\vdots
-$$
-
-$$
-= 3^i T(n/3^i) + i \cdot 2
-$$
-
-For $i = \log n$:
-
-$$
-T(n) = 3^{\log n} \cdot T(1) + 2 \cdot \log n
-$$
-
-$$
-T(n) = n + 2 \cdot \log n
-$$
 
 Thus, the time complexity is:
 
