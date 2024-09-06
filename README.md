@@ -15,12 +15,30 @@ Analyse the time complexity of your implementation and give a $\Theta$ bound for
 its worst-case runtime. Add your answer, including your reasoning, to this
 markdown file.
 
-
-Recall mergesort:
-Mergesort is a “divide and conquer” algorithm.
-1. If the array has 0 or 1 elements, it’s sorted. Stop.
-2. Split the array into two approximately equal-sized halves.
-3. Sort each half recursively (using Mergesort).
-4. Merge the sorted halves to produce one sorted result:
-
-
+'''js
+function mergesort(array) {
+    var subarraysize = 1;
+    while (subarraysize < array.length) {
+        for (var start = 0; start < array.length; start += 2 * subarraysize) {
+            var midsub = Math.min(start + subarraysize, array.length);
+            var endsub = Math.min(start + 2 * subarraysize, array.length);
+            var a = start, b = midsub;
+            while (a < b && b < endsub) {
+                if (array[a] <= array[b]) {
+                    a++;
+                } else {
+                    let t = array[b];
+                    for (let k = b; k > a; k--) {
+                        array[k] = array[k - 1];
+                    }
+                    array[a] = t;
+                    a++;
+                    b++;
+                }
+            }
+        }
+        subarraysize *= 2;
+    }
+    return array;
+}
+'''
