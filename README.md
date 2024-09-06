@@ -44,14 +44,15 @@ function mergesort(array) {
 }
 ```
 
-1. The outer while loop runs $log_2 n$ times. This is because 
-2. The outermost for loop runs 
+1. The outer while loop runs $log_2 n$ times. This is becauseit begins at one a will keep doubling until doubling would result in being bigger than the array.
+2. The outermost for loop runs once for every subarray. There are $\frac{n}{2 \text{ subarray size }$ subarrays at any given time.
+3. The innermost while loop and the innermost for loop handle the merging. The in the worst case the while loop runs $n$ times and the for loop runs also run $n$ times when shifting the elements. Thus combined they result in $\Theta(n^2)$.
 
 
-Thus, the time complexity is:
+Hence, multiplying those, the time complexity is:
 
 $$
-T(n) \in \Theta(n log n)
+T(n) \in \Theta(n^3 log n)
 $$
 
 I certify that I have listed all sources used to complete this exercise, including the use of any Large Language Models. All of the work is my own, except where stated otherwise. I am aware that plagiarism carries severe penalties and that if plagiarism is suspected, charges may be filed against me without prior notice.
