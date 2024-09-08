@@ -59,15 +59,15 @@ Now analysing the function in the context of the worst case runtime:
 
 1. The outer while-loop runs $log_2 n$ times. This is because it begins at $1$ and will keep doubling until doubling would result in being bigger than the array. $1,2,4,...,k$ where $k$ is the largest integer such that $k < n$ and $2k <= n$, $\Theta(log_2 n) = $\Theta(log_2 n)$$
 2. The outermost for-loop runs once for every subarray. There are $\frac{n}{2 \text{ subarray size }}$ subarrays at any given time. The for loop will process $n$ elements at any iteration so the time complexity is $\Theta(n)$
-3. The innermost while-loop and the innermost for-loop handle the merging. In the worst case, the while-loop runs $n$ times and the for-loop also runs $n$ times when shifting the elements. Thus combined they result in $\Theta(n^2)$.
+3. The innermost while-loop and the innermost for-loop handle the merging. The merging step involves comparing elements from two subarrays. When two subarrays are merged, and an element from the second subarray is smaller than an element in the first subarray, it is shifted left by one position. In the worst case, this requires $\Theta(n)$ shifts for each merge.
 
-We have $log_2 n$, $n$, and $n^2$, so multiplying those, the time complexity is:
+We have $log_2 n$, $n$, and $n$, so multiplying those, the time complexity is:
 
 $$
-T(n) \in \Theta(n^3 log n)
+T(n) \in \Theta(n^2 log n)
 $$
 
 I certify that I have listed all sources used to complete this exercise, including the use of any Large Language Models. All of the work is my own, except where stated otherwise. I am aware that plagiarism carries severe penalties and that if plagiarism is suspected, charges may be filed against me without prior notice.
 
-I originally did this all independently except for using the code in the slides as an outline for my code. When correcting my compexity analysis after the first review, I looked at this repo to help me figure out if mine should be $\Theta (n^2 log n)$ or my original estimate of $\Theta (n^3 log n)$. While our code is similar I still think mine should be $\Theta (n^3 log n)$. 
+I originally did this all independently except for using the code in the slides as an outline for my code. When correcting my compexity analysis after the first review, I looked at this repo to help me figure out if mine should be $\Theta (n^2 log n)$ or my original estimate of $\Theta (n^3 log n)$.
 https://github.com/COSC3020/mergesort-ross223
