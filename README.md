@@ -57,11 +57,11 @@ function mergesort(array) {
 
 Now analysing the function in the context of the worst case runtime:
 
-1. The outer while-loop runs $log_2 n$ times. This is because it begins at $1$ and will keep doubling until doubling would result in being bigger than the array. $1,2,4,...,k$ where $k$ is the largest integer such that $k < n$ and $2k <= n$, $\Theta(log_2 n) = $\Theta(log_2 n)$$
-2. The outermost for-loop runs once for every subarray. There are $\frac{n}{2 \text{ subarray size }}$ subarrays at any given time. The for loop will process $n$ elements at any iteration so the time complexity is $\Theta(n)$
-3. The innermost while-loop and the innermost for-loop handle the merging. The merging step involves comparing elements from two subarrays. When two subarrays are merged, and an element from the second subarray is smaller than an element in the first subarray, it is shifted left by one position. In the worst case, this requires $\Theta(n)$ shifts for each merge.
+The outer while-loop and for-loop handle splitting the array into subarray chunks, the loops have a $log_2 n$ runtime. This is ecause it begins with a subarray size of $1$ and will keep doubling it until doubling would result in being bigger than the array. $1,2,4,...,k$ where $k$ is the largest integer such that $k < n$ and $2k <= n$, $\Theta(log_2 n) = \Theta(log_2 n)$.
 
-We have $log_2 n$, $n$, and $n$, so multiplying those, the time complexity is:
+The innermost while-loop and the innermost for-loop handle the merging. The merging step involves comparing elements from two subarrays. When two subarrays are merged, and an element from the second subarray is smaller than an element in the first subarray, it is shifted left by one position. In the worst case, because both loops will run $n$ times, this requires $\Theta(n^2)$ runtime.
+
+We have $log_2 n$ and $n^2$, so multiplying those, the time complexity is:
 
 $$
 T(n) \in \Theta(n^2 log n)
