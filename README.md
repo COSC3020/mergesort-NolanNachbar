@@ -58,7 +58,7 @@ function mergesort(array) {
 Now analysing the function in the context of the worst case runtime:
 
 1. The outer while-loop runs $log_2 n$ times. This is because it begins at $1$ and will keep doubling until doubling would result in being bigger than the array. $1,2,4,...,k$ where $k$ is the largest integer such that $k < n$ and $2k <= n$, $\Theta(log_2 n) = $\Theta(log_2 n)$$
-2. The outermost for-loop runs once for every subarray. There are $\frac{n}{2 \text{ subarray size }$ subarrays at any given time. The for loop will process $n$ elements at any iteration so the time complexity is $\Theta(n)$
+2. The outermost for-loop runs once for every subarray. There are $\frac{n}{2 \text{ subarray size }}$ subarrays at any given time. The for loop will process $n$ elements at any iteration so the time complexity is $\Theta(n)$
 3. The innermost while-loop and the innermost for-loop handle the merging. In the worst case, the while-loop runs $n$ times and the for-loop also runs $n$ times when shifting the elements. Thus combined they result in $\Theta(n^2)$.
 
 We have $log_2 n$, $n$, and $n^2$, so multiplying those, the time complexity is:
